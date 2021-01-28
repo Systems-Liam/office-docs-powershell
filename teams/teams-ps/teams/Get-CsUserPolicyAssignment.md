@@ -19,6 +19,16 @@ This cmdlet is used to return the policy assignments for a user, both directly a
 ```
 Get-CsUserPolicyAssignment -Identity <String> [-PolicyType <String>]
 ```
+-Identity can be obtained by using the AzureAD powershell commandlet 
+
+```
+Get-AzureADUser -ObjectID <UserPrincipalName>
+```
+-Identity can also be the full UPN of the user, for example
+
+```
+Get-CsUserPolicyAssignment -Identity <user@contoso.com> [-PolicyType <String>]
+```
 
 ## DESCRIPTION
 This cmdlets returns the effective policies for a user, based on either direct policy assignment or inheritance from a group policy assignment.  For a given policy type, if an effective policy is not returned, this indicates that the effective policy for the user is either the tenant global default policy (if set) or the system global default policy.
